@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+**/.env
+.env.*
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Firebase service account
+serviceAccountKey.json
+**/serviceAccountKey.json
+
+# macOS
+.DS_Store
+**/.DS_Store
