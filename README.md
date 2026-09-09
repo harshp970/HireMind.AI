@@ -1,10 +1,12 @@
-# 🚀 Fresher.AI
+# 🚀 HireMind.AI
 
 > **AI-powered career preparation platform for interviews, resumes, performance analysis, and personalized learning roadmaps.**
 
-Fresher.AI is a full-stack AI career preparation platform designed to help students and job seekers prepare for the complete hiring journey — from building an ATS-friendly resume to practicing realistic interviews and identifying the skills required to reach their target role.
+**HireMind.AI** is a full-stack AI career preparation platform designed to help students and job seekers prepare for the complete hiring journey.
 
-The platform uses **specialized AI agents**, **LangGraph workflows**, and a **microservices-based backend** to provide personalized career assistance.
+The platform brings together **AI-powered interview practice, resume building, interview performance analysis, and personalized learning roadmaps** in a single application.
+
+It uses a **microservices-oriented backend**, **LangChain/LangGraph-based AI workflows**, specialized AI agents, Redis caching, MongoDB persistence, Firebase authentication, and Razorpay payments.
 
 ---
 
@@ -12,113 +14,116 @@ The platform uses **specialized AI agents**, **LangGraph workflows**, and a **mi
 
 ### 🎤 AI Interview Simulator
 
-Practice realistic interviews with AI-powered interview agents.
+Practice realistic interview sessions with AI-powered interview workflows.
 
-* HR / behavioral interviews
-* Technical interviews
-* Coding interview support
-* Dynamic AI-generated questions
-* Interview session management
-* Timed interview experience
-* Code editor for coding rounds
-* AI-generated interview reports
-* Performance scoring and analysis
+- HR and behavioral interviews
+- Technical interviews
+- Coding interview support
+- AI-generated interview questions
+- Timed interview sessions
+- Integrated code editor
+- Interview session management
+- AI-powered answer evaluation
+- Automated interview feedback
+- Performance scoring
+- Interview reports and analysis
 
 ---
 
-### 🤖 Multi-Agent AI System
+### 🤖 AI Agent Architecture
 
-Fresher.AI separates different career tasks into specialized AI agents.
+Different career-related tasks are handled by specialized AI agents.
 
-| AI Agent           | Responsibility                               |
-| ------------------ | -------------------------------------------- |
-| 📝 Resume Agent    | Resume analysis and ATS-focused improvements |
-| 🎤 Interview Agent | Conducts AI-powered interviews               |
-| 📊 Feedback Agent  | Evaluates answers and provides feedback      |
-| 🗺️ Roadmap Agent  | Generates personalized learning roadmaps     |
-| 📚 Resource Agent  | Finds useful learning resources              |
+| AI Agent | Responsibility |
+|---|---|
+| 📝 Resume Agent | Assists with resume generation and improvement |
+| 🎤 Interview Agent | Generates and conducts interview questions |
+| 📊 Feedback Agent | Evaluates candidate responses and generates feedback |
+| 🗺️ Roadmap Agent | Generates personalized learning roadmaps |
+| 📚 Resource Agent | Finds relevant learning resources |
 
-This modular architecture makes it easier to extend the platform with additional AI capabilities.
+This modular approach makes it easier to extend the platform with additional AI capabilities.
 
 ---
 
 ### 📄 AI Resume Builder
 
-Create and improve professional resumes directly inside the platform.
+Create and manage professional resumes directly within HireMind.AI.
 
-**Features include:**
-
-* ATS-friendly resume template
-* Structured resume editor
-* Resume preview
-* PDF export
-* AI-powered resume assistance
-* Resume data management
+- Structured resume editor
+- ATS-oriented resume format
+- Resume preview
+- PDF generation
+- AI-assisted resume creation
+- Resume data management
 
 ---
 
-### 📊 Interview Analytics Dashboard
+### 📊 Interview Analytics
 
-Track interview preparation and performance through a centralized dashboard.
+Track interview preparation and performance from a centralized dashboard.
 
-The dashboard provides:
+The platform provides information such as:
 
-* Total interviews
-* Questions answered
-* Completed interviews
-* Average interview score
-* Technical interview performance
-* HR / behavioral performance
-* Interview history
-* Performance graphs
+- Total interviews
+- Questions answered
+- Completed interviews
+- Average interview score
+- HR/behavioral performance
+- Technical performance
+- Interview history
+- Performance visualizations
 
 ---
 
-### 🗺️ Personalized Career Roadmaps
+### 🗺️ Personalized Learning Roadmaps
 
-Generate customized learning roadmaps based on your career goals and current skills.
+Generate learning plans based on a candidate's career goal and current skills.
 
 The roadmap system can:
 
-* Generate structured learning paths
-* Break goals into modules
-* Recommend learning resources
-* Integrate external resources
-* Track roadmap-related information
+- Generate structured learning paths
+- Divide goals into learning modules
+- Recommend learning resources
+- Fetch relevant external learning resources
+- Present resources alongside the generated roadmap
+
+The roadmap service integrates with the **YouTube API** to provide learning resources.
 
 ---
 
 ### 🔐 Authentication & User Management
 
-Secure user authentication and account management using:
+HireMind.AI uses Firebase for authentication and Firebase Admin for backend verification.
 
-* Firebase Authentication
-* Firebase Admin SDK
-* Cookie-based authentication
-* Protected API routes
-* User session management
+- Firebase Authentication
+- Firebase Admin SDK
+- Cookie-based authentication
+- Protected backend routes
+- User session management
+- User data persistence with MongoDB
 
 ---
 
 ### 💳 Subscription & Billing
 
-Integrated billing infrastructure for handling premium functionality.
+Premium functionality is supported through Razorpay integration.
 
-* Razorpay integration
-* Subscription/payment management
-* Billing records
-* User plan management
+- Razorpay payment integration
+- Payment processing
+- Billing records
+- User plan management
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ System Architecture
 
-Fresher.AI follows a **microservices-oriented backend architecture**.
+HireMind.AI follows a **microservices-oriented backend architecture**.
 
 ```text
                          ┌─────────────────────┐
-                         │      React UI       │
-                         │   Vite + Tailwind   │
+                         │     React + Vite    │
+                         │     Frontend UI     │
                          └──────────┬──────────┘
                                     │
                                     ▼
@@ -127,45 +132,50 @@ Fresher.AI follows a **microservices-oriented backend architecture**.
                          │   Node.js + Express │
                          └──────────┬──────────┘
                                     │
-              ┌─────────────────────┼─────────────────────┐
-              │                     │                     │
-              ▼                     ▼                     ▼
-      ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-      │ Auth Service │      │Interview Svc │      │ Resume Svc   │
-      └──────────────┘      └──────┬───────┘      └──────┬───────┘
-                                   │                     │
-                                   ▼                     ▼
-                            ┌─────────────┐       ┌─────────────┐
-                            │ LangGraph   │       │ AI / RAG    │
-                            │ AI Agents   │       │ Pipeline     │
-                            └─────────────┘       └─────────────┘
+          ┌─────────────────────────┼─────────────────────────┐
+          │                         │                         │
+          ▼                         ▼                         ▼
+ ┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
+ │  Auth Service   │      │ Interview Service│      │ Resume Service  │
+ │ Firebase +      │      │ AI Interview     │      │ AI Resume       │
+ │ MongoDB         │      │ Workflows        │      │ Processing       │
+ └─────────────────┘      └────────┬────────┘      └────────┬────────┘
+                                   │                         │
+                                   ▼                         ▼
+                           ┌───────────────┐          ┌───────────────┐
+                           │ LangGraph +   │          │ LangChain +   │
+                           │ AI Agents     │          │ AI Agent      │
+                           └───────────────┘          └───────────────┘
 
-              ┌─────────────────────┼─────────────────────┐
-              │                                           │
-              ▼                                           ▼
-      ┌──────────────┐                            ┌──────────────┐
-      │Roadmap Svc   │                            │Billing Svc   │
-      └──────┬───────┘                            └──────────────┘
-             │
-             ▼
-      ┌──────────────┐
-      │ AI + Search  │
-      └──────────────┘
+          ┌─────────────────────────┼─────────────────────────┐
+          │                                                   │
+          ▼                                                   ▼
+ ┌─────────────────┐                                ┌─────────────────┐
+ │ Roadmap Service │                                │ Billing Service │
+ │ AI Roadmaps +   │                                │ Razorpay        │
+ │ YouTube Resources│                               │ Payments        │
+ └────────┬────────┘                                └─────────────────┘
+          │
+          ▼
+ ┌─────────────────┐
+ │ YouTube API     │
+ │ Learning        │
+ │ Resources       │
+ └─────────────────┘
 
-                 ┌──────────────────────┐
-                 │ MongoDB + Redis      │
-                 │ Persistent Data      │
-                 │ & Caching            │
-                 └──────────────────────┘
+                    ┌─────────────────────────┐
+                    │     MongoDB + Redis     │
+                    │ Persistence + Caching   │
+                    └─────────────────────────┘
 ```
 
 ---
 
-## 🧠 AI Architecture
+# 🧠 AI Architecture
 
-The platform uses **LangChain and LangGraph** to build structured AI workflows.
+The AI functionality is organized into structured workflows using **LangChain** and **LangGraph**.
 
-### Interview Workflow
+## Interview Workflow
 
 ```text
 User starts interview
@@ -185,83 +195,87 @@ Performance Analysis
 Interview Report
 ```
 
-### Roadmap Workflow
+The workflow separates question generation, response evaluation, feedback, and reporting into dedicated stages.
+
+---
+
+## Roadmap Workflow
 
 ```text
 Career Goal
-    ↓
+     ↓
 Current Skills
-    ↓
+     ↓
 Roadmap Agent
-    ↓
+     ↓
 Learning Plan Generation
-    ↓
+     ↓
 Resource Agent
-    ↓
-Learning Resources
-    ↓
+     ↓
+External Learning Resources
+     ↓
 Personalized Roadmap
 ```
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
-### Frontend
+## Frontend
 
-* React.js
-* Vite
-* Tailwind CSS
-* Redux Toolkit
-* React Router
-* Axios
-* Motion
-* Recharts
-* Monaco Editor
-* Firebase Authentication
+- React.js
+- Vite
+- Redux Toolkit
+- React Router
+- Axios
+- Recharts
+- Monaco Editor
+- Firebase Authentication
+- Motion
 
-### Backend
+## Backend
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* Redis
-* Docker
-* REST APIs
-* Microservices Architecture
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Redis
+- Docker
+- REST APIs
+- Microservices Architecture
 
-### AI / LLM
+## AI
 
-* LangChain
-* LangGraph
-* Groq
-* Google Gemini
-* Qdrant
-* Retrieval-Augmented Generation (RAG)
-* AI Agents
-* Tavily
+- LangChain
+- LangGraph
+- Groq
+- AI Agents
 
-### Authentication & Payments
+## Authentication & Payments
 
-* Firebase Admin
-* Razorpay
+- Firebase Authentication
+- Firebase Admin SDK
+- Razorpay
 
-### Developer Tools
+## External Services
 
-* Git
-* GitHub
-* Docker
-* npm
-* ESLint
-* Nodemon
+- YouTube Data API
+
+## Developer Tools
+
+- Git
+- GitHub
+- Docker
+- npm
+- ESLint
+- Nodemon
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
-fresherAI/
+HireMind.AI/
 │
 ├── backend/
 │   │
@@ -283,29 +297,48 @@ fresherAI/
 │   │
 │   └── docker-compose.yml
 │
-└── frontend/
-    │
-    ├── src/
-    │   ├── api/
-    │   ├── components/
-    │   ├── pages/
-    │   ├── redux/
-    │   └── utils/
-    │
-    └── public/
+├── frontend/
+│   │
+│   ├── src/
+│   │   ├── api/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── redux/
+│   │   └── utils/
+│   │
+│   └── public/
+│
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## ⚙️ Getting Started
+# ⚙️ Getting Started
 
-### 1. Start Terminal
+## Prerequisites
+
+Make sure the following are installed:
+
+- Node.js
+- npm
+- Docker Desktop
+- MongoDB
+- Git
+
+---
+
+## 1. Clone the Repository
 
 ```bash
-cd fresherAI
+git clone https://github.com/harshp970/HireMind.AI.git
+cd HireMind.AI
 ```
 
-### 2. Install frontend dependencies
+---
+
+## 2. Install Frontend Dependencies
 
 ```bash
 cd frontend
@@ -318,9 +351,11 @@ Start the frontend:
 npm run dev
 ```
 
+The frontend runs on the Vite development server.
+
 ---
 
-### 3. Install backend dependencies
+## 3. Install Backend Dependencies
 
 Each backend service maintains its own dependencies.
 
@@ -332,19 +367,31 @@ npm install
 npm run dev
 ```
 
-Repeat the installation for the required backend services.
+Install dependencies for the other services in the same way.
+
+The backend consists of:
+
+```text
+Gateway             → 8000
+Auth Service        → 8001
+Interview Service   → 8002
+Resume Service      → 8003
+Roadmap Service     → 8004
+Billing Service     → 8005
+```
 
 ---
 
-### 4. Start Redis
+## 4. Start Redis
 
 From the backend directory:
 
 ```bash
+cd backend
 docker compose up -d
 ```
 
-Redis will be available on:
+Redis is exposed on:
 
 ```text
 localhost:6379
@@ -352,95 +399,117 @@ localhost:6379
 
 ---
 
-## 🔑 Environment Variables
+# 🔑 Environment Variables
 
-Create `.env` files for the required services.
+Each service uses its own `.env` file.
+
+Example configuration files are provided as:
+
+```text
+backend/services/auth-service/.env.example
+backend/services/billing-service/.env.example
+backend/services/interview-service/.env.example
+backend/services/resume-service/.env.example
+backend/services/roadmap-service/.env.example
+frontend/.env.example
+```
+
+The example files contain placeholders only.
 
 Typical configuration includes:
 
 ```env
-MONGO_URI=your_mongodb_connection_string
-
-GROQ_API_KEY=your_groq_api_key
-
-GOOGLE_API_KEY=your_google_api_key
-
-TAVILY_API_KEY=your_tavily_api_key
-
-QDRANT_URL=your_qdrant_url
-
-QDRANT_API_KEY=your_qdrant_api_key
-
-REDIS_URL=redis://localhost:6379
-
-RAZORPAY_KEY_ID=your_razorpay_key
-
-RAZORPAY_KEY_SECRET=your_razorpay_secret
+MONGODB_URL="your_mongodb_connection_string"
+REDIS_URL="redis://localhost:6379"
+GROQ_API_KEY="your_groq_api_key"
+YOUTUBE_API_KEY="your_youtube_api_key"
+RAZORPAY_KEY_ID="your_razorpay_key_id"
+RAZORPAY_KEY_SECRET="your_razorpay_key_secret"
 ```
 
-> Never commit real API keys, credentials, Firebase service-account files, or `.env` files to GitHub.
+Frontend configuration includes the required Firebase and Razorpay public configuration.
+
+For Firebase Admin authentication, configure the required service-account credentials locally using the provided example file as a reference.
+
+> **Never commit real API keys, `.env` files, or Firebase service-account credentials to GitHub.**
 
 ---
 
-## 🔒 Security
+# 🔒 Security
 
-Fresher.AI uses environment-based configuration for sensitive credentials and supports protected backend routes through authentication middleware.
+Sensitive configuration is kept outside the source code through environment variables and local credential files.
+
+The repository's `.gitignore` excludes:
+
+```text
+.env
+node_modules/
+serviceAccountKey.json
+.DS_Store
+```
 
 For production deployments:
 
-* Store secrets using environment variables or a secrets manager.
-* Never commit `.env` files.
-* Never commit Firebase service-account credentials.
-* Rotate credentials immediately if they are accidentally exposed.
+- Use environment variables or a secrets manager.
+- Never commit API keys.
+- Never commit Firebase service-account credentials.
+- Rotate credentials immediately if they are accidentally exposed.
+- Use separate credentials for development and production.
 
 ---
 
-## 🚀 Future Improvements
+# 🚀 Future Improvements
 
-* Real-time voice interviews
-* Resume-to-job matching
-* Job description analysis
-* LinkedIn profile optimization
-* More programming languages for coding interviews
-* Advanced interview analytics
-* Personalized job recommendations
-* Interview difficulty adaptation
-* Real-time AI interviewer
-* Production-grade observability and monitoring
+Potential future improvements include:
+
+- Real-time voice interviews
+- Resume-to-job matching
+- Job description analysis
+- LinkedIn profile optimization
+- Additional programming languages for coding interviews
+- Adaptive interview difficulty
+- More advanced interview analytics
+- Personalized job recommendations
+- Real-time AI interviewer
+- Production-grade monitoring and observability
 
 ---
 
-## 🎯 Why Fresher.AI?
+# 🎯 Why HireMind.AI?
 
-Most interview preparation platforms focus on only one part of the hiring process.
+The hiring process involves much more than interview preparation alone.
 
-**Fresher.AI brings the preparation workflow together:**
+HireMind.AI combines several preparation stages into one platform:
 
 ```text
-Resume
-   ↓
-Skill Gap
-   ↓
-Learning Roadmap
-   ↓
-Interview Practice
-   ↓
-AI Feedback
-   ↓
-Performance Analytics
-   ↓
-Better Interview Preparation
+        Resume
+           ↓
+      Skill Analysis
+           ↓
+   Learning Roadmap
+           ↓
+    Interview Practice
+           ↓
+       AI Feedback
+           ↓
+ Performance Analytics
+           ↓
+ Better Interview Preparation
 ```
 
-The goal is to provide job seekers with a single AI-powered platform for continuous career preparation.
+The goal is to provide students and job seekers with a unified platform for **continuous career preparation**.
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Harsh Pathak**
 
-B.Tech Computer Science Engineering | Full-Stack Developer | AI & Backend Enthusiast
+B.Tech Computer Science Engineering  
+Full-Stack Developer | AI & Backend Enthusiast
 
 ---
 
+## ⭐ Project
+
+If you find HireMind.AI useful, consider giving the repository a ⭐ on GitHub.
