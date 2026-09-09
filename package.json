@@ -1,0 +1,12 @@
+{
+  "name": "hiremind-ai",
+  "version": "1.0.0",
+  "description": "AI-powered career preparation platform for interviews, resumes, performance analysis, and personalized learning roadmaps.",
+  "scripts": {
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "concurrently --kill-others-on-fail --names \"GATEWAY,AUTH,INTERVIEW,RESUME,ROADMAP,BILLING\" \"npm run dev --prefix backend/gateway\" \"npm run dev --prefix backend/services/auth-service\" \"npm run dev --prefix backend/services/interview-service\" \"npm run dev --prefix backend/services/resume-service\" \"npm run dev --prefix backend/services/roadmap-service\" \"npm run dev --prefix backend/services/billing-service\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}

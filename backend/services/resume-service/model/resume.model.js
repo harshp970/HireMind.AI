@@ -39,20 +39,33 @@ const resumeSchema = new mongoose.Schema(
       default: "",
     },
 
-    education: {
-      type: [String],
-      default: [],
-    },
+   education: {
+    type: [
+      {
+        institution: { type: String, default: "" },
+        degree: { type: String, default: "" },
+        duration: { type: String, default: "" },
+        percentage: { type: String, default: "" },
+      },
+    ],
+    default: [],
+  },
 
     skills: {
       type: [String],
       default: [],
     },
 
-    projects: {
-      type: [String],
-      default: [],
-    },
+  projects: {
+    type: [
+      {
+        name: { type: String, default: "" },
+        technologies: { type: [String], default: [] },
+        details: { type: [String], default: [] },
+      },
+    ],
+    default: [],
+  },
 
     experience: {
       type: [String],
