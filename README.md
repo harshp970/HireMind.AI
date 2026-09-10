@@ -136,9 +136,9 @@ HireMind.AI follows a **microservices-oriented backend architecture**.
           │                         │                         │
           ▼                         ▼                         ▼
  ┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
- │  Auth Service   │      │ Interview Service│      │ Resume Service  │
- │ Firebase +      │      │ AI Interview     │      │ AI Resume       │
- │ MongoDB         │      │ Workflows        │      │ Processing       │
+ │  Auth Service   │      │Interview Service│      │  Resume Service │
+ │ Firebase +      │      │ AI Interview    │      │  AI Resume      │
+ │ MongoDB         │      │ Workflows       │      │  Processing     │
  └─────────────────┘      └────────┬────────┘      └────────┬────────┘
                                    │                         │
                                    ▼                         ▼
@@ -153,7 +153,7 @@ HireMind.AI follows a **microservices-oriented backend architecture**.
  ┌─────────────────┐                                ┌─────────────────┐
  │ Roadmap Service │                                │ Billing Service │
  │ AI Roadmaps +   │                                │ Razorpay        │
- │ YouTube Resources│                               │ Payments        │
+ │YouTube Resources│                                │ Payments        │
  └────────┬────────┘                                └─────────────────┘
           │
           ▼
